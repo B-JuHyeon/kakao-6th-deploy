@@ -7,6 +7,8 @@ endif::[]
 
 :product: product-rest-controller-test
 :cart: cart-rest-controller-test
+:user: user-rest-controller-test
+:order: order-rest-controller-test
 
 :toc: left
 :toclevels: 2
@@ -31,6 +33,80 @@ include::{snippets}/{product}/find-by-id_test/http-request.adoc[]
 
 ==== 응답 예시
 include::{snippets}/{product}/find-by-id_test/response-body.adoc[]
+
+== 회원
+
+=== 이메일 중복 체크
+
+==== 요청 예시
+include::{snippets}/{user}/check_test/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{user}/check_test/response-body.adoc[]
+
+=== 이메일 중복 체크 실패 예시 1
+
+==== 요청 예시
+include::{snippets}/{user}/check_test_with-duplicate-email/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{user}/check_test_with-duplicate-email/response-body.adoc[]
+
+=== 회원가입
+
+==== 요청 예시
+include::{snippets}/{user}/join_test/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{user}/join_test/response-body.adoc[]
+
+=== 회원가입 실패 예시 1
+
+==== 요청 예시
+include::{snippets}/{user}/join_test_with-invalid-email/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{user}/join_test_with-invalid-email/response-body.adoc[]
+
+=== 회원가입 실패 예시 2
+
+==== 요청 예시
+include::{snippets}/{user}/join_test_with-invalid-password/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{user}/join_test_with-invalid-password/response-body.adoc[]
+
+=== 회원가입 실패 예시 3
+
+==== 요청 예시
+include::{snippets}/{user}/join_test_with-invalid-username/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{user}/join_test_with-invalid-username/response-body.adoc[]
+
+=== 로그인
+
+==== 요청 예시
+include::{snippets}/{user}/login_test/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{user}/login_test/response-body.adoc[]
+
+=== 로그인 실패 예시 1
+
+==== 요청 예시
+include::{snippets}/{user}/login_test_with-invalid-email/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{user}/login_test_with-invalid-email/response-body.adoc[]
+
+=== 로그인 실패 예시 2
+
+==== 요청 예시
+include::{snippets}/{user}/login_test_with-invalid-password/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{user}/login_test_with-invalid-password/response-body.adoc[]
 
 == 장바구니
 
@@ -59,3 +135,38 @@ include::{snippets}/{cart}/update_test/http-request.adoc[]
 
 ==== 응답 예시
 include::{snippets}/{cart}/update_test/response-body.adoc[]
+
+== 주문
+
+=== 주문하기
+
+==== 요청 예시
+include::{snippets}/{order}/save_test/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{order}/save_test/response-body.adoc[]
+
+=== 주문하기 실패 예시1
+
+==== 요청 예시
+include::{snippets}/{order}/save_test_with-empty-cart/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{order}/save_test_with-empty-cart/response-body.adoc[]
+
+
+=== 주문결과확인
+
+==== 요청 예시
+include::{snippets}/{order}/find-by-id_test/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{order}/find-by-id_test/response-body.adoc[]
+
+=== 주문결과확인 실패 예시1
+
+==== 요청 예시
+include::{snippets}/{order}/find-by-id_test_with-invalid-id/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{order}/find-by-id_test_with-invalid-id/response-body.adoc[]

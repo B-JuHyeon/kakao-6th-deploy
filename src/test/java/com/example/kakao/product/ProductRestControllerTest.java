@@ -2,11 +2,13 @@ package com.example.kakao.product;
 
 import com.example.kakao.MyRestDoc;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
@@ -19,6 +21,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 public class ProductRestControllerTest extends MyRestDoc {
+    @Autowired
+    private MockMvc mvc;
 
     @Test
     public void findAll_test() throws Exception {
@@ -66,4 +70,5 @@ public class ProductRestControllerTest extends MyRestDoc {
         resultActions.andExpect(jsonPath("$.response.price").value(1000));
         resultActions.andDo(MockMvcResultHandlers.print()).andDo(document);
     }
+
 }
