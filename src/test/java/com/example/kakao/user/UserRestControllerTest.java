@@ -221,7 +221,7 @@ public class UserRestControllerTest extends MyRestDoc {
     }
 
     @Test
-    public void login_test_withInvalidPassword() throws Exception{
+    public void login_test_withInvalidPassword1() throws Exception{
         //given
         UserRequest.LoginDTO loginDTO = new UserRequest.LoginDTO();
         loginDTO.setEmail("ssarmango@nate.com");
@@ -249,7 +249,35 @@ public class UserRestControllerTest extends MyRestDoc {
     }
 
     @Test
-    public void login_test_withInvalidEmail() throws Exception{
+    public void login_test_withInvalidPassword2() throws Exception{
+        //given
+        UserRequest.LoginDTO loginDTO = new UserRequest.LoginDTO();
+        loginDTO.setEmail("ssarmango@nate.com");
+        loginDTO.setPassword("ssar1234");
+
+        String requestBody = om.writeValueAsString(loginDTO);
+
+        //when
+        ResultActions resultActions = mvc.perform(
+                post("/login")
+                        .content(requestBody)
+                        .contentType(MediaType.APPLICATION_JSON)
+        );
+
+        // eye
+        String responseBody = resultActions.andReturn().getResponse().getContentAsString();
+        //System.out.println("테스트 : " + responseBody);
+
+        //then
+        resultActions.andExpect(jsonPath("$.success").value("false"));
+        resultActions.andExpect(jsonPath("$.response").value(nullValue()));
+        resultActions.andExpect(jsonPath("$.error.message").value("영문, 숫자, 특수문자가 포함되어야하고 공백이 포함될 수 없습니다.:password"));
+        resultActions.andExpect(jsonPath("$.error.status").value(400));
+        resultActions.andDo(MockMvcResultHandlers.print()).andDo(document);
+    }
+
+    @Test
+    public void login_test_withInvalidEmail1() throws Exception{
         //given
         UserRequest.LoginDTO loginDTO = new UserRequest.LoginDTO();
         loginDTO.setEmail("ssar@nate.com");
@@ -272,6 +300,34 @@ public class UserRestControllerTest extends MyRestDoc {
         resultActions.andExpect(jsonPath("$.success").value("false"));
         resultActions.andExpect(jsonPath("$.response").value(nullValue()));
         resultActions.andExpect(jsonPath("$.error.message").value("이메일을 찾을 수 없습니다 : "+ loginDTO.getEmail()));
+        resultActions.andExpect(jsonPath("$.error.status").value(400));
+        resultActions.andDo(MockMvcResultHandlers.print()).andDo(document);
+    }
+
+    @Test
+    public void login_test_withInvalidEmail2() throws Exception{
+        //given
+        UserRequest.LoginDTO loginDTO = new UserRequest.LoginDTO();
+        loginDTO.setEmail("ssar@natecom");
+        loginDTO.setPassword("meta1234!");
+
+        String requestBody = om.writeValueAsString(loginDTO);
+
+        //when
+        ResultActions resultActions = mvc.perform(
+                post("/login")
+                        .content(requestBody)
+                        .contentType(MediaType.APPLICATION_JSON)
+        );
+
+        // eye
+        String responseBody = resultActions.andReturn().getResponse().getContentAsString();
+        //System.out.println("테스트 : " + responseBody);
+
+        //then
+        resultActions.andExpect(jsonPath("$.success").value("false"));
+        resultActions.andExpect(jsonPath("$.response").value(nullValue()));
+        resultActions.andExpect(jsonPath("$.error.message").value("이메일 형식으로 작성해주세요:email"));
         resultActions.andExpect(jsonPath("$.error.status").value(400));
         resultActions.andDo(MockMvcResultHandlers.print()).andDo(document);
     }

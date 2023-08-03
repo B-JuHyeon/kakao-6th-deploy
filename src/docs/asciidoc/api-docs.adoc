@@ -95,18 +95,34 @@ include::{snippets}/{user}/login_test/response-body.adoc[]
 === 로그인 실패 예시 1
 
 ==== 요청 예시
-include::{snippets}/{user}/login_test_with-invalid-email/http-request.adoc[]
+include::{snippets}/{user}/login_test_with-invalid-email1/http-request.adoc[]
 
 ==== 응답 예시
-include::{snippets}/{user}/login_test_with-invalid-email/response-body.adoc[]
+include::{snippets}/{user}/login_test_with-invalid-email1/response-body.adoc[]
 
 === 로그인 실패 예시 2
 
 ==== 요청 예시
-include::{snippets}/{user}/login_test_with-invalid-password/http-request.adoc[]
+include::{snippets}/{user}/login_test_with-invalid-email2/http-request.adoc[]
 
 ==== 응답 예시
-include::{snippets}/{user}/login_test_with-invalid-password/response-body.adoc[]
+include::{snippets}/{user}/login_test_with-invalid-email2/response-body.adoc[]
+
+=== 로그인 실패 예시 3
+
+==== 요청 예시
+include::{snippets}/{user}/login_test_with-invalid-password1/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{user}/login_test_with-invalid-password1/response-body.adoc[]
+
+=== 로그인 실패 예시 4
+
+==== 요청 예시
+include::{snippets}/{user}/login_test_with-invalid-password2/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{user}/login_test_with-invalid-password2/response-body.adoc[]
 
 == 장바구니
 
@@ -117,6 +133,22 @@ include::{snippets}/{cart}/add-cart-list_test/http-request.adoc[]
 
 ==== 응답 예시
 include::{snippets}/{cart}/add-cart-list_test/response-body.adoc[]
+
+=== 장바구니 담기 실패 예시 1
+
+==== 요청 예시
+include::{snippets}/{cart}/add-cart-list_test_with-duplicate-option/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{cart}/add-cart-list_test_with-duplicate-option/response-body.adoc[]
+
+=== 장바구니 담기 실패 예시 2
+
+==== 요청 예시
+include::{snippets}/{cart}/add-cart-list_test_with-invalid-option/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{cart}/add-cart-list_test_with-invalid-option/response-body.adoc[]
 
 === 장바구니 조회
 
@@ -135,6 +167,30 @@ include::{snippets}/{cart}/update_test/http-request.adoc[]
 
 ==== 응답 예시
 include::{snippets}/{cart}/update_test/response-body.adoc[]
+
+=== 장바구니 수정 실패 예시 1
+
+==== 요청 예시
+include::{snippets}/{cart}/update_test_with-duplicate-cart-id/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{cart}/update_test_with-duplicate-cart-id/response-body.adoc[]
+
+=== 장바구니 수정 실패 예시 2
+
+==== 요청 예시
+include::{snippets}/{cart}/update_test_with-invalid-cart-id/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{cart}/update_test_with-invalid-cart-id/response-body.adoc[]
+
+=== 장바구니 수정 실패 예시 3
+
+==== 요청 예시
+include::{snippets}/{cart}/update_test_with-empty-cart/http-request.adoc[]
+
+==== 응답 예시
+include::{snippets}/{cart}/update_test_with-empty-cart/response-body.adoc[]
 
 == 주문
 

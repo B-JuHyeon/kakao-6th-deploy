@@ -58,13 +58,13 @@ public class OrderRestControllerTest extends MyRestDoc {
     @WithUserDetails(value = "ssarmango@nate.com")
     @Test
     public void save_test_withEmptyCart() throws Exception{
-        //given teardown.sql
+        //given
+        mvc.perform(
+                post("/orders/save") //장바구니 비우기
+        );
 
         //when
         ResultActions resultActions = mvc.perform(
-                post("/orders/save")
-        );
-        resultActions = mvc.perform(
                 post("/orders/save")
         );
 
