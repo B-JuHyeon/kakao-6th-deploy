@@ -1,5 +1,4 @@
 = 카카오 쇼핑하기 RestAPI
-Metacoding <getinthere@naver.com>
 
 ifndef::snippets[]
 :snippets: ./build/generated-snippets

@@ -243,7 +243,7 @@ public class UserRestControllerTest extends MyRestDoc {
         //then
         resultActions.andExpect(jsonPath("$.success").value("false"));
         resultActions.andExpect(jsonPath("$.response").value(nullValue()));
-        resultActions.andExpect(jsonPath("$.error.message").value("패스워드가 잘못입력되었습니다"));
+        resultActions.andExpect(jsonPath("$.error.message").value("패스워드가 잘못입력되었습니다 "));
         resultActions.andExpect(jsonPath("$.error.status").value(400));
         resultActions.andDo(MockMvcResultHandlers.print()).andDo(document);
     }
